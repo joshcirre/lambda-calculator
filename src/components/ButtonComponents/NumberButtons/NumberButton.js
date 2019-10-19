@@ -1,10 +1,16 @@
 import React from 'react';
 
-const NumberButton = ({ numbers }) => {
-  console.log(numbers);
+const NumberButton = props => {
+  console.log(props);
+
+  const changeTotal = () => {
+    props.setTotal(props.numbers);
+  };
   return (
     <>
-      <button>{numbers}</button>
+      <button className="number Button" onClick={() => changeTotal()}>
+        {props.numbers}
+      </button>
     </>
   );
 };

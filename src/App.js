@@ -3,7 +3,7 @@ import './App.css';
 import Numbers from './components/ButtonComponents/NumberButtons/Numbers';
 import Operators from './components/ButtonComponents/OperatorButtons/Operators';
 import Specials from './components/ButtonComponents/SpecialButtons/Specials';
-import Displays from './components/DisplayComponents/Display';
+import Display from './components/DisplayComponents/Display';
 import { numbers, operator, specials } from './data';
 
 // STEP 4 - import the button and display components
@@ -12,8 +12,9 @@ import { numbers, operator, specials } from './data';
 // Logo has already been provided for you. Do the same for the remaining components
 import Logo from './components/DisplayComponents/Logo';
 
-function App() {
-  const [display, setDisplay] = useState(0);
+function App(props) {
+  const [total, setTotal, items] = useState(0);
+  const { numbers } = props;
   // STEP 5 - After you get the components displaying using the provided data file, write your state hooks here.
   // Once the state hooks are in place write some functions to hold data in state and update that data depending on what it needs to be doing
   // Your functions should accept a parameter of the the item data being displayed to the DOM (ie - should recieve 5 if the user clicks on
@@ -22,12 +23,18 @@ function App() {
 
   return (
     <div className="container">
-      <Logo />
+      <Logo className="logo" />
       <div className="App">
-        <Displays display={display} />
-        <Numbers />
-        <Operators />
-        <Specials />
+        <Display total={total} />
+        <div className="buttonPanel">
+          <div className="leftButtons">
+            <Specials total={total} setTotal={setTotal} />
+            <Numbers total={total} setTotal={setTotal} />
+          </div>
+          <div className="rightButtons">
+            <Operators total={total} setTotal={setTotal} />
+          </div>
+        </div>
       </div>
     </div>
   );
