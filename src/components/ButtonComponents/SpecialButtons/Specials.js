@@ -13,7 +13,9 @@ const Specials = props => {
     <div>
       {specialState.map((item, index) => {
         console.log(item);
-        return <SpecialButton specialCharacters={specialCharacters} />;
+        return (
+          <SpecialButton setTotal={props.setTotal} key={index} special={item} />
+        );
       })}
     </div>
   );

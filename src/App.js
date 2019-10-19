@@ -4,7 +4,6 @@ import Numbers from './components/ButtonComponents/NumberButtons/Numbers';
 import Operators from './components/ButtonComponents/OperatorButtons/Operators';
 import Specials from './components/ButtonComponents/SpecialButtons/Specials';
 import Display from './components/DisplayComponents/Display';
-import { numbers, operator, specials } from './data';
 
 // STEP 4 - import the button and display components
 // Don't forget to import any extra css/scss files you build into the correct component
@@ -13,7 +12,7 @@ import { numbers, operator, specials } from './data';
 import Logo from './components/DisplayComponents/Logo';
 
 function App(props) {
-  const [total, setTotal, items] = useState(0);
+  const [total, setTotal, items] = useState([0]);
   const { numbers } = props;
   // STEP 5 - After you get the components displaying using the provided data file, write your state hooks here.
   // Once the state hooks are in place write some functions to hold data in state and update that data depending on what it needs to be doing
